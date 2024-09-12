@@ -43,6 +43,8 @@ jobs:
         run: |
           cd ${{ github.event.inputs.reponame }}
           rsync -av --exclude="${{ github.event.inputs.reponame }}" --exclude=".git" ../ ./
+          cp -f ./CLIENTREADME.md ./README.md
+          rm ./CLIENTREADME.md
 
       - name: List dir contents
         run: ls -la ./${{ github.event.inputs.reponame }}

@@ -1,4 +1,6 @@
-name: Create Eide Bailly Customer App
+name: 'Create Eide Bailly Customer App'
+
+run-name: "Create a new Customer Extension App in the Eide Bailly organization"
 
 on:
   workflow_dispatch:
@@ -14,7 +16,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  create-new-repo:
+  CreateEideBaillyCustomerApp:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,8 +31,8 @@ jobs:
         run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Create new repository
-        run: gh repo create ${{ github.repository_owner }}/new-repo-name --private --clone
-        cd new-repo-name
+        run: gh repo create EideBaillyCloud/${{ github.event.inputs.reponame }} --private --clone
+        cd ${{ github.event.inputs.reponame }}
 
       # Copy files from the current repostiroy to the new repository
       - name: Copy repository files

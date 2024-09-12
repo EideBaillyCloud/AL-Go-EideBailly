@@ -33,12 +33,10 @@ jobs:
       - name: Create new repository
         run: gh repo create EideBaillyCloud/${{ github.event.inputs.reponame }} --private --clone
         
-      - name: Move into repo folder
-        run: cd ${{ github.event.inputs.reponame }}
-
       # Copy files from the current repostiroy to the new repository
       - name: Copy repository files
         run: |
+          cd ${{ github.event.inputs.reponame }}
           cp -r ../* .
           git add .
           git commit -m "Initiailze repostiroy with template"

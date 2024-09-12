@@ -42,7 +42,7 @@ jobs:
       - name: Copy repository files
         run: |
           cd ${{ github.event.inputs.reponame }}
-          rsync -av --exclude="${{ github.event.inputs.reponame }}" ../ ./
+          rsync -av --exclude="${{ github.event.inputs.reponame }}" --exclude=".git" ../ ./
 
       - name: List dir contents
         run: ls -la ./${{ github.event.inputs.reponame }}

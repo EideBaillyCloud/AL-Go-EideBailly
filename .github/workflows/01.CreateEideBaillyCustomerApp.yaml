@@ -50,8 +50,8 @@ jobs:
       - name: Commit to Git
         run: |
           cd ${{ github.event.inputs.reponame }}
-          gh auth login --with-token <<< "${{ secrets.REPO_ACCESS_TOKEN }}"
-          git checkout -b main
           git add --all
           git commit -m "Initiailze repository with template"
-          git push origin main
+          git branch -M main
+          git remote add origin https://github.com/EideBaillyCloud/SampleCompany.git
+          git push -u origin main

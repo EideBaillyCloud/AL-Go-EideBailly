@@ -37,7 +37,7 @@ jobs:
       - name: Copy repository files
         run: |
           cd ${{ github.event.inputs.reponame }}
-          cp -r ../* .
+          rsync -av --exclude="${{ github.event.inputs.reponame }}" ../ ./
           git add .
           git commit -m "Initiailze repostiroy with template"
           git push origin main

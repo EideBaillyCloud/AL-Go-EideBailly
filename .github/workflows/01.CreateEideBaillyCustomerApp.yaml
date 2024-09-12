@@ -32,7 +32,12 @@ jobs:
 
       - name: Create new repository
         run: gh repo create EideBaillyCloud/${{ github.event.inputs.reponame }} --private --clone
-        
+      
+      - name: Set up Git user
+        run: |
+          git config --global user.name "Eide Bailly Actions"
+          git config --global user.email "actions@eidebailly.com"
+
       # Copy files from the current repostiroy to the new repository
       - name: Copy repository files
         run: |

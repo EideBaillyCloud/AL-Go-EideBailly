@@ -53,4 +53,5 @@ jobs:
           git add --all
           git commit -m "Initiailze repository with template"
           git branch -M main
+          git remote set-url origin https://x-access-token:${{ secrets.REPO_ACCESS_TOKEN }}@github.com/EideBaillyCloud/${{ github.event.inputs.reponame }}
           git push -u origin main

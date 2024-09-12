@@ -54,4 +54,4 @@ jobs:
           git checkout -b main
           git add --all
           git commit -m "Initiailze repository with template"
-          git push -u origin main
+          git push origin main

@@ -51,5 +51,5 @@ jobs:
         run: |
           cd ${{ github.event.inputs.reponame }}
           git add .
-          git commit -m "Initiailze repostiroy with template"
+          git commit -m "Initiailze repository with template"
           git push origin main

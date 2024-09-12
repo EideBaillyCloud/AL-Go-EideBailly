@@ -31,9 +31,10 @@ jobs:
         run: gh auth login --with-token <<< "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Create new repository
-        run: | 
-        gh repo create EideBaillyCloud/${{ github.event.inputs.reponame }} --private --clone
-        cd ${{ github.event.inputs.reponame }}
+        run: gh repo create EideBaillyCloud/${{ github.event.inputs.reponame }} --private --clone
+        
+      - name: Move into repo folder
+        run: cd ${{ github.event.inputs.reponame }}
 
       # Copy files from the current repostiroy to the new repository
       - name: Copy repository files

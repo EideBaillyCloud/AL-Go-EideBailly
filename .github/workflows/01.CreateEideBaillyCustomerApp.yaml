@@ -45,10 +45,11 @@ jobs:
           rsync -av --exclude="${{ github.event.inputs.reponame }}" ../ ./
 
       - name: List dir contents
-        run: ls -la ../
+        run: ls -la ./${{ github.event.inputs.reponame }}
 
       - name: Commit to Git
         run: |
+          cd ${{ github.event.inputs.reponame }}
           git add .
           git commit -m "Initiailze repostiroy with template"
           git push origin main

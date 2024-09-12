@@ -50,6 +50,7 @@ jobs:
       - name: Commit to Git
         run: |
           cd ${{ github.event.inputs.reponame }}
-          git add .
+          git checkout -b main
+          git add --all
           git commit -m "Initiailze repository with template"
-          git push origin main
+          git push -u origin main

@@ -53,5 +53,4 @@ jobs:
           git add --all
           git commit -m "Initiailze repository with template"
           git branch -M main
-          git remote add origin https://github.com/EideBaillyCloud/SampleCompany.git
           git push -u origin main
